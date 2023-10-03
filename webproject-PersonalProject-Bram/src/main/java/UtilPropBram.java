@@ -7,10 +7,10 @@ import java.io.FileNotFoundException;
 
 public class UtilPropBram {
    static final boolean _W = System.getProperty("os.name").toLowerCase().contains("windows");
-   static String _PROP_FILENAME_WIN_LOCAL = "C:\\Users\\Owner\\Desktop\\Eclipse Projects\\workspaceCSCI4830-ex-0907-Bram\\webproject-ex-0907-Bram\\WebContent\\config.properties";
+   static String _PROP_FILENAME_WIN_LOCAL = "C:\\Users\\Owner\\Desktop\\Eclipse Projects\\workspaceCSCI4830-PersonalProject-Bram\\PersonalProject\\webproject-PersonalProject-Bram\\src\\main\\webapp\\config.properties";
    static String _PROP_FILENAME_OSX_LOCAL = "/YOUR_PATH/webproject/WebContent/config.properties";
    // * Remote server path
-   static String _PROP_FILENAME_REMOTE = "/var/lib/tomcat9/webapps/webproject-ex-0907-Bram/config.properties";
+   static String _PROP_FILENAME_REMOTE = "/var/lib/tomcat9/webapps/webproject-PersonalProject-Bram/config.properties";
    static Properties prop = new Properties();
 
    public static void loadProperty() throws Exception {

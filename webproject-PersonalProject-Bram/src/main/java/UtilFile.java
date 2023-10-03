@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 import javax.servlet.ServletContext;
 
+@SuppressWarnings("unused")
 public class UtilFile {
    public static List<String> readFile(ServletContext context, String filename) {
       List<String> contents = new ArrayList<String>();

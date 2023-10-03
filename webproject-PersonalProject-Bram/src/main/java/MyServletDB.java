@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/MyServletDB")
 public class MyServletDB extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	static String url = "jdbc:mysql://ec2-18-221-65-21.us-east-2.compute.amazonaws.com:3306/MyDBBram";
+	static String url = "jdbc:mysql://ec2-18-221-65-21.us-east-2.compute.amazonaws.com:3306/PersonalProjectBram";
 	static String user = "jbramremoteuser";
 	static String password = "jbram";
 	static Connection connection = null;

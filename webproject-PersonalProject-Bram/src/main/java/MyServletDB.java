@@ -11,15 +11,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/MyServletDBBram")
-public class MyServletDBBram extends HttpServlet {
+@WebServlet("/MyServletDB")
+public class MyServletDB extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	static String url = "jdbc:mysql://ec2-18-221-65-21.us-east-2.compute.amazonaws.com:3306/MyDBBram";
 	static String user = "jbramremoteuser";
 	static String password = "jbram";
 	static Connection connection = null;
 
-	public MyServletDBBram() {
+	public MyServletDB() {
 		super();
 	}
 
@@ -49,7 +49,7 @@ public class MyServletDBBram extends HttpServlet {
 			System.out.println("Failed to make connection!");
 		}
 		try {
-			String selectSQL = "SELECT * FROM MyTableBram WHERE MYUSER LIKE ?";
+			String selectSQL = "SELECT * FROM PersonalProjectBram WHERE MYUSER LIKE ?";
 			String theUserName = "user%";
 			response.getWriter().println(selectSQL + "<br>");
 			response.getWriter().println("------------------------------------------ <br>");

@@ -1,41 +1,78 @@
-
-
+//Name: Jonathan Bram
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class MyServletDBBram
- */
 @WebServlet("/MyServletDBBram")
 public class MyServletDBBram extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MyServletDBBram() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	static String url = "jdbc:mysql://ec2-18-221-65-21.us-east-2.compute.amazonaws.com:3306/MyDBBram";
+	static String user = "jbramremoteuser";
+	static String password = "jbram";
+	static Connection connection = null;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	public MyServletDBBram() {
+		super();
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+		response.getWriter().println("-------- MySQL JDBC Connection Testing------------<br>");
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver"); // old:com.mysql.jdbc.Driver
+		} catch (ClassNotFoundException e) {
+			System.out.println("Where is your MySQL JDBC Driver?");
+			e.printStackTrace();
+			return;
+		}
+		response.getWriter().println("MySQL JDBC Driver Registered!<br>");
+		connection = null;
+		try {
+			connection = DriverManager.getConnection(url, user, password);
+		} catch (SQLException e) {
+			System.out.println("Connection Failed! Check output console");
+			e.printStackTrace();
+			return;
+		}
+		if (connection != null) {
+			response.getWriter().println("You made it, take control your database now! <br>");
+		} else {
+			System.out.println("Failed to make connection!");
+		}
+		try {
+			String selectSQL = "SELECT * FROM MyTableBram WHERE MYUSER LIKE ?";
+			String theUserName = "user%";
+			response.getWriter().println(selectSQL + "<br>");
+			response.getWriter().println("------------------------------------------ <br>");
+			PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, theUserName);
+			ResultSet rs = preparedStatement.executeQuery();
+			while (rs.next()) {
+				String id = rs.getString("ID");
+				String username = rs.getString("MYUSER");
+				String email = rs.getString("EMAIL");
+				String phone = rs.getString("PHONE");
+				response.getWriter().append("USER ID: " + id + ", ");
+				response.getWriter().append("USER NAME: " + username + ", ");
+				response.getWriter().append("USER EMAIL: " + email + ", ");
+				response.getWriter().append("USER PHONE: " + phone + "<br>");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException {
+doGet(request, response);
+	}
 }

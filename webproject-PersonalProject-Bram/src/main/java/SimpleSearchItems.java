@@ -11,23 +11,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/SimpleSearch")
-public class SimpleSearch extends HttpServlet {
+@WebServlet("/SimpleSearchItems")
+public class SimpleSearchItems extends HttpServlet {
    private static final long serialVersionUID = 1L;
 
-   public SimpleSearch() {
+   public SimpleSearchItems() {
       super();
    }
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      String keyword = request.getParameter("userName");
+      String keyword = request.getParameter("itemName");
       search(keyword, response);
    }
 
    void search(String keyword, HttpServletResponse response) throws IOException {
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
-      String title = "Database Result";
+      String title = "Items in Cart";
       String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " + //
             "transitional//en\">\n"; //
       out.println(docType + //
@@ -43,10 +43,10 @@ public class SimpleSearch extends HttpServlet {
          connection = DBConnectionBram.connection;
 
          if (keyword.isEmpty()) {
-            String selectSQL = "SELECT * FROM UserTable";
+            String selectSQL = "SELECT * FROM ItemsTable";
             preparedStatement = connection.prepareStatement(selectSQL);
          } else {
-            String selectSQL = "SELECT * FROM UserTable WHERE USERNAME LIKE ?";
+            String selectSQL = "SELECT * FROM ItemsTable WHERE ITEMNAME LIKE ?";
             
             preparedStatement = connection.prepareStatement(selectSQL);
             preparedStatement.setString(1, "%" + keyword + "%");
@@ -55,20 +55,21 @@ public class SimpleSearch extends HttpServlet {
 
          while (rs.next()) {
             int id = rs.getInt("id");
-            String userName = rs.getString("userName").trim();
-            String userID = rs.getString("userID").trim();
-            String money = rs.getString("money").trim();
+            String itemName = rs.getString("itemName").trim();
+            String itemID = rs.getString("itemprice").trim();
+            String itemPrice = rs.getString("itemPrice").trim();
             
             
-            if (keyword.isEmpty() || userName.contains(keyword)) { 
+            if (keyword.isEmpty() || itemName.contains(keyword)) { //email
                out.println("ID: " + id + ", ");
-               out.println("Username: " + userName + ", ");
-               out.println("User ID: " + userID + ", ");
-               out.println("Money: " + money + ", ");
+               out.println("Item Name: " + itemName + ", ");
+               out.println("Item ID: " + itemID + ", ");
+               out.println("Item Price: " + itemPrice + ", ");
                
             }
          }
-         out.println("<a href=/webproject-PersonalProject-Bram/search_bram.html>Search</a> <br>");
+         out.println("<a href=/webproject-PersonalProject-Bram/shoppingCart.html>Proceed to Checkout</a> <br>");
+         out.println("<a href=/webproject-PersonalProject-Bram/mainPage.html>Main Page</a> <br>");
          out.println("</body></html>");
          rs.close();
          preparedStatement.close();

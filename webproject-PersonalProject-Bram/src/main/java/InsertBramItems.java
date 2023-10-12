@@ -63,7 +63,8 @@ public class InsertBramItems extends HttpServlet {
             
             "</ul>\n");
 
-      out.println("<a href=/webproject-PersonalProject-Bram/mainPage.html>Main Page</a> <br>");
+      out.println("<a href=/webproject-PersonalProject-Bram/shoppingCart.html>Proceed to Checkout</a> <br>");
+      out.println("<a href=/webproject-PersonalProject-Bram/mainPage.html>Back to Main Page</a> <br>");
       out.println("</body></html>");
    }
 

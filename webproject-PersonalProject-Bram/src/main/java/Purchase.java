@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/DeleteItemsFromTable")
+@WebServlet("/Purchase")
 public class Purchase extends HttpServlet {
    private static final long serialVersionUID = 1L;
 
@@ -20,9 +20,7 @@ public class Purchase extends HttpServlet {
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	  
-      String itemName = request.getParameter("itemName");
-      String itemID = request.getParameter("itemID");
-      String itemPrice = request.getParameter("itemPrice");
+      
 
       Connection connection = null;
       String deleteSql = " DELETE FROM ItemsTable";

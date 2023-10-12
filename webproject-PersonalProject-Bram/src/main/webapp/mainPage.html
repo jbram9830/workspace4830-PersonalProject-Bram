@@ -34,7 +34,7 @@
 
 		.grid-container {
 			display: grid;
-			grid-template-columns: repeat(5, 51fr);
+			grid-template-columns: repeat(5, 5fr);
 			gap: 16px;
 		}
 
@@ -54,12 +54,16 @@
 
 		img {
 			max-width: 350%;
-			height: auto;
+			height: 150px;
 			margin-bottom: 8px;
 		}
 
 		label {
 			margin-bottom: 4px;
+		}
+		
+		div{
+			white-space: nowrap; 
 		}
 	</style>
 </head>
@@ -71,203 +75,231 @@
 
 	<nav>
 		<a href="/webproject-PersonalProject-Bram/createANewUser.html">New User?</a> <br>
-		<a href="/webproject-PersonalProject-Bram/login.html">Login</a> <br>
-		<a href="/webproject-PersonalProject-Bram/wishList.html">Wish List</a> <br>
 		<a href="/webproject-PersonalProject-Bram/shoppingCart.html">Shopping Cart</a> <br>
 	</nav>
 
 
 	<section>
+	<form action="InsertBramItems" method="POST">
 		<h1>Items for Sale</h1>
+		<h2>Enter the itemName, itemID, and itemPrice of the item you want to buy.</h2>
 		<div class="grid-container">
 			<div class="image-container">
 	
 				<img src="./WebsitePictures/8PaintbrushSet.jpg" alt="Image 1">
+				
 				<label>
-					8 Paintbrush Set: $5.00
+					itemName: <b>8 Paintbrushes</b> <br></br>
+					itemID: <b>1</b> <br></br>
+					itemPrice: <b>$3.00</b> 
 				</label>
-				<input type="checkbox" id="picture1" name="picture1" value="Item">
 			</div>
 			
 			<div class="image-container">
-				<img src="./WebsitePictures/biiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiinder.jpg" alt="Image 2">
+	
+				<img src="./WebsitePictures/binder.jpg" alt="Image 2">
 				<label>
-					Binder: $3.00
+					itemName: <b>Binder</b> <br></br>
+					itemID: <b>2</b> <br></br>
+					itemPrice: <b>$3.00</b> 
 				</label>
-				<input type="checkbox" id="picture2" name="picture2" value="Item">
 			</div>
 			
 			<div class="image-container">
+	
 				<img src="./WebsitePictures/coloredPencils.jpg" alt="Image 3">
 				<label>
-					Colored Pencil Set: $4.00
+					itemName: <b>Colored Pencil Set</b> <br></br>
+					itemID: <b>3</b> <br></br>
+					itemPrice: <b>$4.00</b> 
 				</label>
-				<input type="checkbox" id="picture3" name="picture3" value="Item">
 			</div>
-			
 			
 			<div class="image-container">
 	
-				<img src="./WebsitePictures/craaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaayons.jpg" alt="Image 4">
+				<img src="./WebsitePictures/crayons.jpg" alt="Image 4">
 				<label>
-					Crayon Set: $2.00
+					itemName: <b>Crayon Set</b> <br></br>
+					itemID: <b>4</b> <br></br>
+					itemPrice: <b>$2.00</b> 
 				</label>
-				<input type="checkbox" id="picture4" name="picture4" value="Item">
 			</div>
-			
 			
 			<div class="image-container">
 	
-				<img src="./WebsitePictures/eraaaaaaaaaaaaaaaaaaser.jpg" alt="Image 5">
+				<img src="./WebsitePictures/eraser.jpg" alt="Image 5">
 				<label>
-					Eraser: $2.00
+					itemName: <b>Eraser</b> <br></br>
+					itemID: <b>5</b> <br></br>
+					itemPrice: <b>$2.00</b> 
 				</label>
-				<input type="checkbox" id="picture5" name="picture5" value="Item">
 			</div>
-			
 			
 			<div class="image-container">
 	
 				<img src="./WebsitePictures/folder.jpg" alt="Image 6">
 				<label>
-					Folder: $5.00
+					itemName: <b>Folder</b> <br></br>
+					itemID: <b>6</b> <br></br>
+					itemPrice: <b>$5.00</b> 
 				</label>
-				<input type="checkbox" id="picture6" name="picture6" value="Item">
 			</div>
 			
 			<div class="image-container">
 	
 				<img src="./WebsitePictures/highlighter.jpg" alt="Image 7">
 				<label>
-					Highlighter: $3.00
+					itemName: <b>Highlighter</b> <br></br>
+					itemID: <b>7</b> <br></br>
+					itemPrice: <b>$3.00</b> 
 				</label>
-				<input type="checkbox" id="picture7" name="picture7" value="Item">
 			</div>
 			
 			<div class="image-container">
 	
 				<img src="./WebsitePictures/markerSet.jpg" alt="Image 8">
 				<label>
-					Marker Set: $7.00
+					itemName: <b>Marker Set</b> <br></br>
+					itemID: <b>8</b> <br></br>
+					itemPrice: <b>$7.00</b> 
 				</label>
-				<input type="checkbox" id="picture8" name="picture8" value="Item">
 			</div>
 			
 			<div class="image-container">
 	
 				<img src="./WebsitePictures/measuringSet.jpg" alt="Image 9">
 				<label>
-					Measuring Set: $8.00
+					itemName: <b>Measuring Set</b> <br></br>
+					itemID: <b>9</b> <br></br>
+					itemPrice: <b>$8.00</b> 
 				</label>
-				<input type="checkbox" id="picture9" name="picture9" value="Item">
 			</div>
 			
 			<div class="image-container">
 	
 				<img src="./WebsitePictures/notebook.jpg" alt="Image 10">
 				<label>
-					Notebook: $2.00
+					itemName: <b>Notebook</b> <br></br>
+					itemID: <b>10</b> <br></br>
+					itemPrice: <b>$2.00</b> 
 				</label>
-				<input type="checkbox" id="picture10" name="picture10" value="Item">
 			</div>
 			
 			<div class="image-container">
 	
 				<img src="./WebsitePictures/paintSet.jpg" alt="Image 11">
 				<label>
-					Paint Set: $10.00
+					itemName: <b>Paint Set</b> <br></br>
+					itemID: <b>11</b> <br></br>
+					itemPrice: <b>$10.00</b> 
 				</label>
-				<input type="checkbox" id="picture11" name="picture11" value="Item">
 			</div>
-			
 			
 			<div class="image-container">
 	
 				<img src="./WebsitePictures/pencilsharpener.jpg" alt="Image 12">
 				<label>
-					Pencil Sharpener: $9.00
+					itemName: <b>Pencil Sharpener</b> <br></br>
+					itemID: <b>12</b> <br></br>
+					itemPrice: <b>$9.00</b> 
 				</label>
-				<input type="checkbox" id="picture12" name="picture12" value="Item">
 			</div>
 			
 			<div class="image-container">
 	
-				<img src="./WebsitePictures/pennnnnnnnnnnnnncil.jpg" alt="Image 13">
+				<img src="./WebsitePictures/pencil.jpg" alt="Image 13">
 				<label>
-					Pencil: $1.00
+					itemName: <b>Pencil</b> <br></br>
+					itemID: <b>13</b> <br></br>
+					itemPrice: <b>$1.00</b> 
 				</label>
-				<input type="checkbox" id="picture13" name="picture13" value="Item">
 			</div>
 			
 			<div class="image-container">
 	
-				<img src="./WebsitePictures/pennnnnnnnnnnnnnnnnnnnnnnnnnnnn.jpg" alt="Image 14">
+				<img src="./WebsitePictures/pen.jpg" alt="Image 14">
 				<label>
-					Pen: $1.00
+					itemName: <b>Pen</b> <br></br>
+					itemID: <b>14</b> <br></br>
+					itemPrice: <b>$1.00</b> 
 				</label>
-				<input type="checkbox" id="picture14" name="picture14" value="Item">
 			</div>
 			
 			<div class="image-container">
 	
 				<img src="./WebsitePictures/ruler.jpg" alt="Image 15">
 				<label>
-					Ruler: $2.00
+					itemName: <b>Ruler</b> <br></br>
+					itemID: <b>15</b> <br></br>
+					itemPrice: <b>$2.00</b> 
 				</label>
-				<input type="checkbox" id="picture15" name="picture15" value="Item">
 			</div>
 			
 			<div class="image-container">
 	
 				<img src="./WebsitePictures/schoolBundle.jpg" alt="Image 16">
 				<label>
-					School Bundle: $9.00
+					itemName: <b>Highlighter</b> <br></br>
+					itemID: <b>16</b> <br></br>
+					itemPrice: <b>$9.00</b> 
 				</label>
-				<input type="checkbox" id="picture16" name="picture16" value="Item">
 			</div>
 			
 			<div class="image-container">
 	
 				<img src="./WebsitePictures/scissors.jpg" alt="Image 17">
 				<label>
-					Scissors: $2.50
+					itemName: <b>Scissors</b> <br></br>
+					itemID: <b>17</b> <br></br>
+					itemPrice: <b>$2.50</b> 
 				</label>
-				<input type="checkbox" id="picture17" name="picture17" value="Item">
 			</div>
 			
 			<div class="image-container">
 	
 				<img src="./WebsitePictures/staplernotebookbundle.jpg" alt="Image 18">
 				<label>
-					Stapler Notebook Bundle: $10.00
+					itemName: <b>Stapler Notebook Bundle</b> <br></br>
+					itemID: <b>18</b> <br></br>
+					itemPrice: <b>$10.00</b> 
 				</label>
-				<input type="checkbox" id="picture18" name="picture18" value="Item">
 			</div>
 			
 			<div class="image-container">
 	
 				<img src="./WebsitePictures/stickyNotes.jpg" alt="Image 19">
 				<label>
-					Sticky Notes: $4.00
+					itemName: <b>Sticky Notes</b> <br></br>
+					itemID: <b>19</b> <br></br>
+					itemPrice: <b>$4.00</b> 
 				</label>
-				<input type="checkbox" id="picture19" name="picture19" value="Item">
 			</div>
 			
 			<div class="image-container">
 	
-				<img src="./WebsitePictures/superschoolbundle.jpg" alt="Image 7">
+				<img src="./WebsitePictures/superschoolbundle.jpg" alt="Image 20">
 				<label>
-					Super School Bundle: $50.00
+					itemName: <b>Super School Bundle</b> <br></br>
+					itemID: <b>20</b> <br></br>
+					itemPrice: <b>$50.00</b> 
 				</label>
-				<input type="checkbox" id="picture20" name="picture20" value="Item">
 			</div>
-	
-		</div>
-		
-			<input type="submit" value="Submit">
-		
+			
+			
+			
+			<div class =="grid-container">
+				<div class="image-container">
+					<input type="text" id="a1" name="itemName"<br />
+					<input type="text" id="a2" name="itemID"<br />
+					<input type="text" id="a3" name="itemPrice" <br />
+					<input type="submit" value2="Submit Items">
+			</div>
+				
 	</section>
-
+	
+	
+ 
+</script>
 	<footer>
 		Copyright
 	</footer>
